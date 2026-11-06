@@ -90,6 +90,7 @@ def answer_question(user_question: str, context: str, history: list) -> tuple[st
 	usage = response.response_metadata.get("token_usage", {})
 	return response.content, usage.get("prompt_tokens", 0), usage.get("completion_tokens", 0)
 
+from ascii_art import art
 
 def main():
 	print(Fore.CYAN + "=== Conversational Book RAG: The Adventures of Pinocchio ===" + Style.RESET_ALL)
@@ -97,7 +98,8 @@ def main():
 
 	chat_history = []
 	session_tokens = 0
-
+	print(Fore.YELLOW + art + Style.RESET_ALL)
+	print ("\nWelcome to Pinocchio's magical world! ✨ Follow his adventures and let the story begin!\n\n")
 	while True:
 		try:
 			user_input = input(Fore.CYAN + "Question: " + Style.RESET_ALL).strip()
